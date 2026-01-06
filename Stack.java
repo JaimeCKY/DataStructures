@@ -1,9 +1,8 @@
 public class Stack<V> {
 
-V stack[];
-V deleted;
 V last;
 
+  
 public Stack(int s){
 
 size = s;
@@ -13,14 +12,14 @@ e = size;
 
 cur = e - 1;
 
-stack = new stack[size];
+  pos = e;
+  
+stack = new V[size];
 
 deleted = null;
 last = null;
 
 flag = false;
-
-
 
 }
 
@@ -35,6 +34,7 @@ if(cur > 0){
 } else if(cur == 0){
   stack[cur] = v;
   cur = -1;
+  pos = 0;
   
 } else if(cur == -1){
 
@@ -45,21 +45,31 @@ if(cur > 0){
 /** Pop  Elimina el elemento superior y lo devuelve.  **/
 public V pop(){
 
-if(cur > b){
+  if(cur != -1){
+    if(pos > cur){
+      deleted = stack[pos];
+      pos -= 1;
+    
+    } else if(pos == cur){
+      deleted = stack[pos];      
+    
+    }
+    
+  } else if(cur == -1){
 
-deleted = stack[cur];
-cur += 1;
+    if(pos == 0){
 
-} else if(cur == 0){
+      deleted = stack[pos]        
+      pos = -1;
 
-deleted = stack[cur];
-cur = e;
+      
+    } else if(pos == -1 ){
 
+      /** error message **/       
+    }
 
-} else if(cur == -1){
-/** error message **/
-}
-
+    
+  }
 
 return deleted;
 }
@@ -68,18 +78,8 @@ return deleted;
 /** Peek (o Top) Consulta el elemento superior sin eliminarlo.  **/
 public V peek(){
 
-if(cur > b){
-  last = stack[cur];
-
-} else if(cur == 0){
-last = stack[cur];
-
-} else if(cur == -1){
-/** error message **/
-
-}
-
- return last;   
+  
+  return last;   
 }
 /** isEmpty Comprueba si la pila está vacía.  **/
     
