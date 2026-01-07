@@ -44,10 +44,12 @@ private void p1(){
     
   } else if(cur == b){
 
-    cur -= 1;
+    cur = -1;
     
   } else if(cur == -1){
 
+	cur = -2;
+	  
   /** error message **/
     
   }
