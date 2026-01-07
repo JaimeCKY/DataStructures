@@ -5,71 +5,21 @@ V last;
   
 public Stack(int s){
 
-size = s;
-
-b = 0;
-e = size;
-
-cur = e - 1;
-
-  pos = e;
-  
-stack = new V[size];
-
-deleted = null;
-last = null;
-
-flag = false;
 
 }
 
 /** Push Inserta un elemento en la parte superior de la pila.  **/
 public void push(V v) {
-
-if(cur > 0){
-
-  stack[cur] = v;
-  cur -= 1;
-
-} else if(cur == 0){
-  stack[cur] = v;
-  cur = -1;
-  pos = 0;
   
-} else if(cur == -1){
+    
+    
 
-/** error message **/
+    
 }
-}
+  
     
 /** Pop  Elimina el elemento superior y lo devuelve.  **/
 public V pop(){
-
-  if(cur != -1){
-    if(pos > cur){
-      deleted = stack[pos];
-      pos -= 1;
-    
-    } else if(pos == cur){
-      deleted = stack[pos];      
-    
-    }
-    
-  } else if(cur == -1){
-
-    if(pos == 0){
-
-      deleted = stack[pos]        
-      pos = -1;
-
-      
-    } else if(pos == -1 ){
-
-      /** error message **/       
-    }
-
-    
-  }
 
 return deleted;
 }
@@ -85,15 +35,7 @@ public V peek(){
     
 public void isEmpty(){
 
-  if(cur > b){
-    flag = false;
-  } else if(cur == 0){
-    flag = false;
-
-  } else if(cur == -1){
-    flage = true;
-  }
-
+ 
 return flag;
 }
 
